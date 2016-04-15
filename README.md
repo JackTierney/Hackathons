@@ -24,3 +24,9 @@ POST   /api/category/{name?}
 
 POST   /api/private/sms
 ```
+
+# Database
+
+## Schema
+
+![schema](./public/img/schema.jpeg)
