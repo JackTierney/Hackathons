@@ -11,9 +11,11 @@ import Hello from './routes/Hello.js'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
+import SendSms from './routes/Send.js'
 
-const Plugins = [Inert]
-const Routes = [Hello, Images, ReactUrls, Scripts]
+const Plugins = [ Inert ]
+const Routes = [ Hello, Images, ReactUrls, Scripts, SendSms ]
+
 
 // Must export function that takes a two arguments: a config object, and the redis client
 // Function must return an UNSTARTED server object

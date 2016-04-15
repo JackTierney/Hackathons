@@ -29,6 +29,8 @@ CREATE TABLE branch_info (
 	email VARCHAR(30),
 	phone bigint,
   postcode VARCHAR(10),
+	latitude DECIMAL,
+	longitude DECIMAL,
 	PRIMARY KEY (branch_id)
 );
 CREATE TABLE categories (

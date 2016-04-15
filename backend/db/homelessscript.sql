@@ -5,7 +5,7 @@
 -- Dumped from database version 9.5.2
 -- Dumped by pg_dump version 9.5.2
 
--- Started on 2016-04-15 15:57:40 BST
+-- Started on 2016-04-15 16:49:17 BST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -24,7 +24,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2209 (class 0 OID 0)
+-- TOC entry 2210 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -68,7 +68,7 @@ CREATE SEQUENCE branch_category_branch_category_id_seq
 ALTER TABLE branch_category_branch_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2210 (class 0 OID 0)
+-- TOC entry 2211 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: branch_category_branch_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -87,7 +87,9 @@ CREATE TABLE branch_info (
     opening_hours character varying(20),
     email character varying(30),
     phone bigint,
-    postcode character varying(10)
+    postcode character varying(10),
+    latitude numeric,
+    longitude numeric
 );
 
 
@@ -138,7 +140,7 @@ CREATE SEQUENCE branches_branch_id_seq
 ALTER TABLE branches_branch_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2211 (class 0 OID 0)
+-- TOC entry 2212 (class 0 OID 0)
 -- Dependencies: 183
 -- Name: branches_branch_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -175,7 +177,7 @@ CREATE SEQUENCE categories_category_id_seq
 ALTER TABLE categories_category_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2212 (class 0 OID 0)
+-- TOC entry 2213 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: categories_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -216,7 +218,7 @@ CREATE SEQUENCE contacts_contact_id_seq
 ALTER TABLE contacts_contact_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2213 (class 0 OID 0)
+-- TOC entry 2214 (class 0 OID 0)
 -- Dependencies: 186
 -- Name: contacts_contact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -253,7 +255,7 @@ CREATE SEQUENCE providers_provider_id_seq
 ALTER TABLE providers_provider_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2214 (class 0 OID 0)
+-- TOC entry 2215 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: providers_provider_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -262,7 +264,7 @@ ALTER SEQUENCE providers_provider_id_seq OWNED BY providers.provider_id;
 
 
 --
--- TOC entry 2053 (class 2604 OID 24654)
+-- TOC entry 2054 (class 2604 OID 24654)
 -- Name: branch_category_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -270,7 +272,7 @@ ALTER TABLE ONLY branch_category ALTER COLUMN branch_category_id SET DEFAULT nex
 
 
 --
--- TOC entry 2050 (class 2604 OID 24590)
+-- TOC entry 2051 (class 2604 OID 24590)
 -- Name: branch_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -278,7 +280,7 @@ ALTER TABLE ONLY branches ALTER COLUMN branch_id SET DEFAULT nextval('branches_b
 
 
 --
--- TOC entry 2052 (class 2604 OID 24646)
+-- TOC entry 2053 (class 2604 OID 24646)
 -- Name: category_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -286,7 +288,7 @@ ALTER TABLE ONLY categories ALTER COLUMN category_id SET DEFAULT nextval('catego
 
 
 --
--- TOC entry 2051 (class 2604 OID 24618)
+-- TOC entry 2052 (class 2604 OID 24618)
 -- Name: contact_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -294,7 +296,7 @@ ALTER TABLE ONLY contacts ALTER COLUMN contact_id SET DEFAULT nextval('contacts_
 
 
 --
--- TOC entry 2049 (class 2604 OID 24582)
+-- TOC entry 2050 (class 2604 OID 24582)
 -- Name: provider_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -302,7 +304,7 @@ ALTER TABLE ONLY providers ALTER COLUMN provider_id SET DEFAULT nextval('provide
 
 
 --
--- TOC entry 2201 (class 0 OID 24651)
+-- TOC entry 2202 (class 0 OID 24651)
 -- Dependencies: 192
 -- Data for Name: branch_category; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -317,7 +319,7 @@ INSERT INTO branch_category VALUES (7, 5, 2);
 
 
 --
--- TOC entry 2215 (class 0 OID 0)
+-- TOC entry 2216 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: branch_category_branch_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -326,20 +328,20 @@ SELECT pg_catalog.setval('branch_category_branch_category_id_seq', 33, true);
 
 
 --
--- TOC entry 2197 (class 0 OID 24631)
+-- TOC entry 2198 (class 0 OID 24631)
 -- Dependencies: 188
 -- Data for Name: branch_info; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO branch_info VALUES (1, 'Southwood Smith Centre, 11 Southwood Smith Street, London', 'Wednesdays, 1pm', 'islington@foodcycle.org.uk', 98765434737, 'N1 0YL');
-INSERT INTO branch_info VALUES (2, 'New Horizon Centre, South Lodge Avenue, Pollards Hill, Mitcham, London', 'TBC', 'merton@foodcycle.org.uk', 98765434737, 'CR4 1LT');
-INSERT INTO branch_info VALUES (3, 'The Food Chain, Acorn House, 314-320 Gray''s Inn Road, London', 'Sundays, 5pm', 'lse@foodcycle.org.uk', 98765434737, 'WC1X 8JY	');
-INSERT INTO branch_info VALUES (4, '88 Old St, London', '9AM-5PM', 'oldst@shelter.org.uk', 98765434737, 'EC1V 9HU');
-INSERT INTO branch_info VALUES (5, '81 Barking Rd, London', '24/7', 'cah@caritas.org.uk', 98765434737, ' E16 4HB');
+INSERT INTO branch_info VALUES (1, 'Southwood Smith Centre, 11 Southwood Smith Street, London', 'Wednesdays, 1pm', 'islington@foodcycle.org.uk', 98765434737, 'N1 0YL', NULL, NULL);
+INSERT INTO branch_info VALUES (2, 'New Horizon Centre, South Lodge Avenue, Pollards Hill, Mitcham, London', 'TBC', 'merton@foodcycle.org.uk', 98765434737, 'CR4 1LT', NULL, NULL);
+INSERT INTO branch_info VALUES (3, 'The Food Chain, Acorn House, 314-320 Gray''s Inn Road, London', 'Sundays, 5pm', 'lse@foodcycle.org.uk', 98765434737, 'WC1X 8JY	', NULL, NULL);
+INSERT INTO branch_info VALUES (4, '88 Old St, London', '9AM-5PM', 'oldst@shelter.org.uk', 98765434737, 'EC1V 9HU', NULL, NULL);
+INSERT INTO branch_info VALUES (5, '81 Barking Rd, London', '24/7', 'cah@caritas.org.uk', 98765434737, ' E16 4HB', NULL, NULL);
 
 
 --
--- TOC entry 2194 (class 0 OID 24598)
+-- TOC entry 2195 (class 0 OID 24598)
 -- Dependencies: 185
 -- Data for Name: branch_services; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -350,7 +352,7 @@ INSERT INTO branch_services VALUES (5, '2016-04-15 14:13:53.249532', false, 45);
 
 
 --
--- TOC entry 2193 (class 0 OID 24587)
+-- TOC entry 2194 (class 0 OID 24587)
 -- Dependencies: 184
 -- Data for Name: branches; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -363,7 +365,7 @@ INSERT INTO branches VALUES (5, 'Caritas Anchor House', 3);
 
 
 --
--- TOC entry 2216 (class 0 OID 0)
+-- TOC entry 2217 (class 0 OID 0)
 -- Dependencies: 183
 -- Name: branches_branch_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -372,7 +374,7 @@ SELECT pg_catalog.setval('branches_branch_id_seq', 5, true);
 
 
 --
--- TOC entry 2199 (class 0 OID 24643)
+-- TOC entry 2200 (class 0 OID 24643)
 -- Dependencies: 190
 -- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -382,7 +384,7 @@ INSERT INTO categories VALUES (2, 'Soup Kitchen');
 
 
 --
--- TOC entry 2217 (class 0 OID 0)
+-- TOC entry 2218 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: categories_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -391,7 +393,7 @@ SELECT pg_catalog.setval('categories_category_id_seq', 2, true);
 
 
 --
--- TOC entry 2196 (class 0 OID 24615)
+-- TOC entry 2197 (class 0 OID 24615)
 -- Dependencies: 187
 -- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -404,7 +406,7 @@ INSERT INTO contacts VALUES (5, 'Tarquin', 'Forst-Burner', 'cah@caritas.org.uk',
 
 
 --
--- TOC entry 2218 (class 0 OID 0)
+-- TOC entry 2219 (class 0 OID 0)
 -- Dependencies: 186
 -- Name: contacts_contact_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -413,7 +415,7 @@ SELECT pg_catalog.setval('contacts_contact_id_seq', 5, true);
 
 
 --
--- TOC entry 2191 (class 0 OID 24579)
+-- TOC entry 2192 (class 0 OID 24579)
 -- Dependencies: 182
 -- Data for Name: providers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -424,7 +426,7 @@ INSERT INTO providers VALUES (3, 'Caritas Anchor House');
 
 
 --
--- TOC entry 2219 (class 0 OID 0)
+-- TOC entry 2220 (class 0 OID 0)
 -- Dependencies: 181
 -- Name: providers_provider_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -433,7 +435,7 @@ SELECT pg_catalog.setval('providers_provider_id_seq', 3, true);
 
 
 --
--- TOC entry 2067 (class 2606 OID 24656)
+-- TOC entry 2068 (class 2606 OID 24656)
 -- Name: branch_category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -442,7 +444,7 @@ ALTER TABLE ONLY branch_category
 
 
 --
--- TOC entry 2063 (class 2606 OID 24635)
+-- TOC entry 2064 (class 2606 OID 24635)
 -- Name: branch_info_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -451,7 +453,7 @@ ALTER TABLE ONLY branch_info
 
 
 --
--- TOC entry 2059 (class 2606 OID 24602)
+-- TOC entry 2060 (class 2606 OID 24602)
 -- Name: branch_services_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -460,7 +462,7 @@ ALTER TABLE ONLY branch_services
 
 
 --
--- TOC entry 2057 (class 2606 OID 24592)
+-- TOC entry 2058 (class 2606 OID 24592)
 -- Name: branches_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -469,7 +471,7 @@ ALTER TABLE ONLY branches
 
 
 --
--- TOC entry 2065 (class 2606 OID 24648)
+-- TOC entry 2066 (class 2606 OID 24648)
 -- Name: categories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -478,7 +480,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- TOC entry 2061 (class 2606 OID 24620)
+-- TOC entry 2062 (class 2606 OID 24620)
 -- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -487,7 +489,7 @@ ALTER TABLE ONLY contacts
 
 
 --
--- TOC entry 2055 (class 2606 OID 24584)
+-- TOC entry 2056 (class 2606 OID 24584)
 -- Name: providers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -496,7 +498,7 @@ ALTER TABLE ONLY providers
 
 
 --
--- TOC entry 2069 (class 2606 OID 24658)
+-- TOC entry 2070 (class 2606 OID 24658)
 -- Name: u_con; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -505,7 +507,7 @@ ALTER TABLE ONLY branch_category
 
 
 --
--- TOC entry 2074 (class 2606 OID 24659)
+-- TOC entry 2075 (class 2606 OID 24659)
 -- Name: branch_category_branch_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -514,7 +516,7 @@ ALTER TABLE ONLY branch_category
 
 
 --
--- TOC entry 2075 (class 2606 OID 24664)
+-- TOC entry 2076 (class 2606 OID 24664)
 -- Name: branch_category_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -523,7 +525,7 @@ ALTER TABLE ONLY branch_category
 
 
 --
--- TOC entry 2073 (class 2606 OID 24636)
+-- TOC entry 2074 (class 2606 OID 24636)
 -- Name: branch_info_branch_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -532,7 +534,7 @@ ALTER TABLE ONLY branch_info
 
 
 --
--- TOC entry 2071 (class 2606 OID 24603)
+-- TOC entry 2072 (class 2606 OID 24603)
 -- Name: branch_services_branch_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -541,7 +543,7 @@ ALTER TABLE ONLY branch_services
 
 
 --
--- TOC entry 2070 (class 2606 OID 24593)
+-- TOC entry 2071 (class 2606 OID 24593)
 -- Name: branches_provider_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -550,7 +552,7 @@ ALTER TABLE ONLY branches
 
 
 --
--- TOC entry 2072 (class 2606 OID 24621)
+-- TOC entry 2073 (class 2606 OID 24621)
 -- Name: contacts_branch_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -559,7 +561,7 @@ ALTER TABLE ONLY contacts
 
 
 --
--- TOC entry 2208 (class 0 OID 0)
+-- TOC entry 2209 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -570,7 +572,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2016-04-15 15:57:41 BST
+-- Completed on 2016-04-15 16:49:17 BST
 
 --
 -- PostgreSQL database dump complete
