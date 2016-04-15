@@ -7,14 +7,13 @@ import {handlePlugins} from './helpers/server-helpers.js'
 import Inert from 'inert'
 
 // server routes
-import Hello from './routes/Hello.js'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
 import SendSms from './routes/Send.js'
 
-const Plugins = [ Inert ]
-const Routes = [ Hello, Images, ReactUrls, Scripts, SendSms ]
+const Plugins = [Inert]
+const Routes = [Images, ReactUrls, Scripts, SendSms]
 
 
 // Must export function that takes a two arguments: a config object, and the redis client
