@@ -1,7 +1,7 @@
 import Hapi from 'hapi'
 
 // helper methods
-import { handlePlugins } from './helpers/server-helpers.js'
+import {handlePlugins} from './helpers/server-helpers.js'
 
 // server plugins
 import Inert from 'inert'
@@ -16,9 +16,10 @@ import SendSms from './routes/Send.js'
 const Plugins = [ Inert ]
 const Routes = [ Hello, Images, ReactUrls, Scripts, SendSms ]
 
+
 // Must export function that takes a two arguments: a config object, and the redis client
 // Function must return an UNSTARTED server object
-export default (client) => {
+export default () => {
 
   const server = new Hapi.Server()
 
