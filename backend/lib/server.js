@@ -15,10 +15,11 @@ import SendSms from './routes/Send.js'
 const Plugins = [Inert]
 const Routes = [Images, ReactUrls, Scripts, SendSms]
 
-
 // Must export function that takes a two arguments: a config object, and the redis client
 // Function must return an UNSTARTED server object
 export default () => {
+
+  const branch = require('./routes/api/branch/index.js')
 
   const server = new Hapi.Server()
 
@@ -30,7 +31,7 @@ export default () => {
   })
 
   server.register(Plugins, handlePlugins)
-  server.route(Routes)
+  server.route(Routes.concat([branch.post, branch.get]))
 
   return server
 }
