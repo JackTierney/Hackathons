@@ -8,8 +8,11 @@ export default function sendFormLink (number, body) => {
 	  body: body,
 	  number: number
 	}, function(error, response) {
-      console.log("error", error);
-      console.log("response", response);
-      console.log("message sent to " + number);
+      if (error) {
+        console.log("error", error);
+      } else {
+        console.log("message sent to " + number);
+        console.log("response", response);
+      }
     })
 }
