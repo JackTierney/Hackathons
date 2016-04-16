@@ -1,20 +1,16 @@
 const tape = require('wrapping-tape')
-const createClient = require('../dist/redis/client.js').default
 const createServer = require('../dist/server.js').default
 
-var client = null
 var server = null
 
 const tests = tape({
   setup: (t) => {
-    client = createClient({env: 'TEST'})
-    server = createServer(client)
+    server = createServer()
     t.end()
   },
 
   teardown: (t) => {
     server.stop()
-    client.quit()
     t.end()
   }
 })
@@ -22,6 +18,20 @@ const tests = tape({
 tests('Check server running', (t) => {
   server.inject({method: 'GET', url: '/'}, (res) => {
     t.equal(res.statusCode, 200, 'Assert successful response')
+    t.end()
   })
-  t.end()
+})
+
+tests('Check branches endpoint', (t) => {
+  server.inject({
+    method: 'POST',
+    url: '/api/branch/1',
+    payload: {
+      beds: 1,
+      servingFood: false,
+    },
+  }, (res) => {
+    t.equal(JSON.parse(res.payload).success, true, 'Assert successfully connected')
+    t.end()
+  })
 })
