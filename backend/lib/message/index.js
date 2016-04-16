@@ -1,4 +1,4 @@
-import zensend  from 'zensend'
+import zensend from 'zensend'
 
 var client = new zensend.Client(process.env.ZENSEND);
 
