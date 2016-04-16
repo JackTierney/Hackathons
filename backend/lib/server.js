@@ -10,11 +10,10 @@ import Inert from 'inert'
 import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
-import SendSms from './routes/Send.js'
 import scheduler from './scheduler/index.js'
 
 const Plugins = [Inert]
-const Routes = [Images, ReactUrls, Scripts, SendSms]
+const Routes = [Images, ReactUrls, Scripts]
 
 // Must export function that takes a two arguments: a config object, and the redis client
 // Function must return an UNSTARTED server object
