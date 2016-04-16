@@ -5,8 +5,7 @@ import schedule from 'node-schedule'
 const connectionDetails = {username: process.env.DBUSER, password: process.env.DBPWD, database: process.env.DB}
 
 const query = {
-	text: "SELECT branch_id, first_name, phone FROM contacts WHERE branch_id IN (
-SELECT branch_id from branch_services WHERE branch_services.last_updated < CURRENT_TIMESTAMP - INTERVAL '1 days')"
+	text: "SELECT branch_id, first_name, phone FROM contacts WHERE branch_id IN (SELECT branch_id from branch_services WHERE branch_services.last_updated < CURRENT_TIMESTAMP - INTERVAL '1 days')"
 }
 
 var messageScheduler = schedule.scheduleJob('* * 10 * *', function(){
