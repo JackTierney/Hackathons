@@ -1,20 +1,28 @@
 import React from 'react'
 import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap'
 
-  // handleChange() {
-  //   // This could also be done using ReactLink:
-  //   // http://facebook.github.io/react/docs/two-way-binding-helpers.html
-  //   this.setState({
-  //     value: this.refs.input.getValue()
-  //   });
-  // },
+handler(e){
+ const id = window.pathname.split('/');
+  e.preventDefault()
+  axios.post('/api/branch/{'+ id + '}', {
+  document.getElementById('Provider')
+  document.getElementById('bg-nested-dropdown')
+  document.getElementById('Food')
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (response) {
+    console.log(response);
+  });
+}
 
   export default (props) => {
     return (
       <Grid>
         <Row>
-        <form>
-          <Input type="text" label="Provider" placeholder="Enter text" />
+        <form onSubmit={handler}>
+          <Input type="text" label="Provider" id="Provider" placeholder="Enter text" />
           <Input type="email" label="Contact Email Address" placeholder="Enter email" />
           <Input type="phoneNumber" label="Contact Landline" placeholder="Enter Landline"/>
           <Input type="phoneNumber" label="Contact Mobile" placeholder="Enter Landline"/>
@@ -23,14 +31,14 @@ import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuIte
                  <Input type="radio" label="Female" />
                  <Input type="radio" label="Other" />
                <DropdownButton title="Beds" id="bg-nested-dropdown">
-                <MenuItem eventKey="1">0</MenuItem>
+                 <MenuItem eventKey="1">0</MenuItem>
                  <MenuItem eventKey="2">0-5</MenuItem>
                  <MenuItem eventKey="3">5-10</MenuItem>
                  <MenuItem eventKey="4">15-10</MenuItem>
                  <MenuItem eventKey="5">20+</MenuItem>
                </DropdownButton>
              </ButtonGroup>
-          <Input type="select" label="Select" placeholder="select">
+          <Input type="Serving food" label="Select" id="Food" placeholder="select">
             <option value="select">select</option>
             <option value="other">...</option>
           </Input>
@@ -48,5 +56,3 @@ import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuIte
       </Grid>
   );
 }
-
-// ReactDOM.render(<ExampleInput />, mountNode);
