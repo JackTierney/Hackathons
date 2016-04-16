@@ -1,6 +1,6 @@
 import zensend  from 'zensend'
 
-var client = new zensend.Client("Tw40TCl18EDda8eLW5hxMw");
+var client = new zensend.Client(process.env.ZENSEND);
 
 export default function sendFormLink (number, body) => {
 	client.sendSms({
