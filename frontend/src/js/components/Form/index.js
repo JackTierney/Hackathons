@@ -4,7 +4,7 @@ import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuIte
 handler(e){
  const id = window.pathname.split('/');
   e.preventDefault()
-  axios.post('/api/branch/{'+ id + '}', {
+  axios.post('/api/branch/{'+ (id[1]) + '}', {
   document.getElementById('Provider')
   document.getElementById('bg-nested-dropdown')
   document.getElementById('Food')
