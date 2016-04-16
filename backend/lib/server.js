@@ -11,6 +11,7 @@ import Images from './routes/Images.js'
 import ReactUrls from './routes/ReactUrls.js'
 import Scripts from './routes/Scripts.js'
 import SendSms from './routes/Send.js'
+import scheduler from './scheduler/index.js'
 
 const Plugins = [Inert]
 const Routes = [Images, ReactUrls, Scripts, SendSms]
@@ -32,6 +33,8 @@ export default () => {
 
   server.register(Plugins, handlePlugins)
   server.route(Routes.concat([branch.post, branch.get]))
+
+  scheduler()
 
   return server
 }
