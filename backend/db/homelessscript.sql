@@ -17,7 +17,7 @@ SET row_security = off;
 
 --
 -- TOC entry 1 (class 3079 OID 12393)
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
@@ -26,7 +26,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 --
 -- TOC entry 2210 (class 0 OID 0)
 -- Dependencies: 1
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -398,11 +398,11 @@ SELECT pg_catalog.setval('categories_category_id_seq', 2, true);
 -- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO contacts VALUES (1, 'Jack', 'Fillips', 'islington@foodcycle.org.uk', 98765434737, 1);
-INSERT INTO contacts VALUES (2, 'Tazza', 'Winkleton', 'merton@foodcycle.org.uk', 98765434777, 2);
-INSERT INTO contacts VALUES (3, 'Willie', 'Wonka', 'lse@foodcycle.org.uk', 987653434737, 3);
-INSERT INTO contacts VALUES (4, 'Micheal', 'Mouse', 'oldst@shelter.org.uk', 98765434737, 4);
-INSERT INTO contacts VALUES (5, 'Tarquin', 'Forst-Burner', 'cah@caritas.org.uk', 98765434737, 5);
+INSERT INTO contacts VALUES (1, 'Jack', 'Fillips', 'islington@foodcycle.org.uk', 07415583356, 1);
+INSERT INTO contacts VALUES (2, 'Tazza', 'Winkleton', 'merton@foodcycle.org.uk', 07789623006, 2);
+INSERT INTO contacts VALUES (3, 'Willie', 'Wonka', 'lse@foodcycle.org.uk', 07732955369, 3);
+INSERT INTO contacts VALUES (4, 'Micheal', 'Mouse', 'oldst@shelter.org.uk', 07415583356, 4);
+INSERT INTO contacts VALUES (5, 'Tarquin', 'Forst-Burner', 'cah@caritas.org.uk', 07789623006, 5);
 
 
 --
@@ -577,4 +577,3 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 -- PostgreSQL database dump complete
 --
-

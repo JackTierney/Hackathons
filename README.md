@@ -83,6 +83,11 @@ GET    /update/{id?}?token=...
 GET    /create/{id?}?token=...
 ```
 
+# User Stories
+
+![schema](./public/img/userstories_onpurpose.jpg)
+
+
 # Database
 ## Schema
 ![schema](./public/img/schema.jpeg)
