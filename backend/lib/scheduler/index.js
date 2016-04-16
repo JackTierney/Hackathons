@@ -1,11 +1,11 @@
 import pg from '../psql/client.js'
-import sendFormLink from '../message/index.js'
+import {sendFormLink} from '../message/index.js'
 import schedule from 'node-schedule'
 
 const HOST = process.env.HOST || 'http://localhost'
 
 export default () => {
-  schedule.scheduleJob('16 0 * * *', () => {
+  schedule.scheduleJob('15 16 * * *', () => {
     pg((err, client, done) => {
       if (err) return console.error('error fetching client from pool', err)
       client.query(
@@ -19,7 +19,7 @@ export default () => {
             var url = HOST + '/update/' + rowObj.branch_id
             var body = 'Hello, ' +
               rowObj.first_name +
-              '. Please click the link to update your service details.' + url
+              '. Please click the link to update your service details: ' + url
             sendFormLink(rowObj.phone, body)
           })
           done()

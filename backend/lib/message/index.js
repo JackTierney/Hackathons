@@ -7,7 +7,7 @@ export const sendFormLink = (number, body) => {
   client.sendSms({
     originator: 'FAC',
     body: body,
-    number: number
+    numbers: [number]
   }, (error, response) => {
     if (error) {
       console.log('error', error)
