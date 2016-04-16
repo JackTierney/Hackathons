@@ -58,7 +58,8 @@ export const post = {
         (err1, result1) => {
           if (result1.rows.length > 0) {
             client.query(
-              'UPDATE branch_services SET (beds,serving_food,last_updated)=($1,$2,$3) WHERE branch_id=$4',
+              'UPDATE branch_services SET (beds,serving_food,last_updated)=($1,$2,$3) ' +
+              'WHERE branch_id=$4',
               [req.payload.beds+0, !!req.payload.servingFood, timestamp, req.params.id],
               (err2, result2) => {
                 done()
