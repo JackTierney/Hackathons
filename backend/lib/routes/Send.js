@@ -16,6 +16,6 @@ pg.connect(connectionDetails, function(err, client, done){
 		result.rows.forEach(function (rowObj) {
 			var url = process.env.HOST + '/update/' + branchId
 			var body = 'Hello, '+ rowObj.first_name +'. Please click the link to update your service details.' + url
-			sendFormLink(body, rowObj.phone)
+			sendFormLink(rowObj.phone, body)
 	})
 })

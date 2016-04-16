@@ -6,6 +6,6 @@ export default function sendFormLink (numbers, body) => {
 	client.sendSms({
 	  originator: "FAC",
 	  body: body,
-	  numbers: numbers
+	  number: number
 	})
 }
