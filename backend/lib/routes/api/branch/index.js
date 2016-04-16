@@ -5,7 +5,24 @@ export const get = {
   path: '/api/branch/{id?}',
   handler: (req, reply) => {
     if (req.params.id) {
-      return reply(req.params.id)
+      pg((error, client, done) => {
+        if (error) throw error
+        client.query(
+          'SELECT ' +
+          'branches.branch_name, branch_info.address, branch_info.opening_hours, ' +
+          'branch_info.email, branch_info.phone, branch_info.postcode, branch_info.latitude, ' +
+          'branch_info.longitude, branch_services.serving_food, branch_services.beds ' +
+          'FROM branches INNER JOIN branch_info ON branches.branch_id = branch_info.branch_id ' +
+          'INNER JOIN branch_services ON branch_services.branch_id = branches.branch_id ' +
+          'WHERE branches.branch_id=$1',
+          [req.params.id],
+          (err, result) => {
+            if (err) throw err
+            reply({success: true, data: result.rows})
+            done()
+          }
+        )
+      })
     } else {
       pg((error, client, done) => {
         if (error) throw error
