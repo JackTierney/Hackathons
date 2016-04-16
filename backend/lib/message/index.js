@@ -7,5 +7,9 @@ export default function sendFormLink (number, body) => {
 	  originator: "FAC",
 	  body: body,
 	  number: number
-	})
+	}, function(error, response) {
+      console.log("error", error);
+      console.log("response", response);
+      console.log("message sent to " + number);
+    })
 }
