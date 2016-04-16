@@ -25,6 +25,10 @@ POST   /api/category/{name?}
 POST   /api/private/sms
 ```
 
+# User Stories
+
+![schema](./public/img/userstories_onpurpose.jpg)
+
 # Database
 
 ## Schema
