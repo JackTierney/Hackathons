@@ -8,7 +8,7 @@ import '../../scss/style.scss'
 
 const options = {
   menuItems: ['about', 'contact', 'Form'],
-  logoUrl: '/img/rhino.png'
+  logoUrl: '/img/63-shelter.png'
 }
 
 export default class App extends React.Component {

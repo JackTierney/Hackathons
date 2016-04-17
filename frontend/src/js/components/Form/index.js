@@ -1,8 +1,8 @@
 import React from 'react'
 import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap'
 
-console.log(document.getElementById('Provider').value, document.getElementById('Beds').value,
-document.getElementById('Food').value, "wowowoooooooooooooooo")
+// console.log(document.getElementById('Provider').value, document.getElementById('Beds').value,
+// document.getElementById('Food').value, "wowowoooooooooooooooo")
 
 export default (props) => {
   const handler = (e) => {
@@ -23,11 +23,17 @@ export default (props) => {
     });
   }
 
+const stylespan =
+{
+  span: {color:'#fff'}
+
+}
+
   return (
     <Grid>
       <Row>
         <form onSubmit={handler}>
-          <Input type="text" label="Provider" id="Provider" placeholder="Enter text" />
+          <Input type="text" syle={stylespan.span}label="Provider" id="Provider" placeholder="Enter text" />
           <Input type="email" label="Contact Email Address" placeholder="Enter email" />
           <Input type="phoneNumber" label="Contact Landline" placeholder="Enter Landline"/>
           <Input type="phoneNumber" label="Contact Mobile" placeholder="Enter Landline"/>

@@ -11,7 +11,9 @@
 .navbar {
   margin-bottom: 0;
 }
-
+ body {
+  background-color: #08182b
+}
 // navbar Button
 
 .navbar-toggle {
@@ -23,7 +25,7 @@
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #fff;
+  background-color: #090707;
   width: 25px;
   height: 3px;
 }
@@ -33,7 +35,7 @@
 }
 
 .navbar-default .navbar-toggle:hover {
-  background-color: rgba(221, 221, 221, 0.26);
+  background-color: #fff;
 }
 
 // top navigation / header
