@@ -45,7 +45,7 @@ export default () => {
               </Input>
           <Input type="textarea" label="Restrictions on who can attend" placeholder="Restrictions." />
           <Input type="text" label="Are you serving food?" id ="Food" placeholder="Yes/No"/>
-            <Input type="select" label="Reoccuring Service" id="Day">
+            <Input type="select" label="please choose day" id="Day">
               <option value="Monday">Monday</option>
               <option value="Tuesday">Tuesday</option>
               <option value="Wednesday">Wednesday</option>
@@ -54,8 +54,8 @@ export default () => {
               <option value="Saturday">Saturday</option>
               <option value="Sunday">Sunday</option>
             </Input>
-            <Input type="number" label="Please enter date" placeholder="DD/MM/YY"/>
-            <Input type="number" label="Please enter time" placeholder="00:00"/>
+            <Input type="dateTime" label="Please enter date" placeholder="DD/MM/YY"/>
+            <Input type="dateTime" label="Please enter time" placeholder="00:00"/>
             <Input type="select" label="Reoccuring Service" id="Reoccuring">
               <option value="Daily">Daily</option>
               <option value="Weekly">Weekly</option>
