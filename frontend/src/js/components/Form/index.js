@@ -12,6 +12,7 @@ export default () => {
   const handler = (e) => {
     e.preventDefault()
     const id = window.location.pathname.split('/')
+    console.log('/api/branch/'+ id[0])
     axios.post('/api/branch/'+ id[0], {
       provider: document.getElementById('Provider').value,
       beds: document.getElementById('Beds').value + 0,
