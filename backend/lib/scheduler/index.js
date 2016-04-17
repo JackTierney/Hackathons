@@ -2,7 +2,7 @@ import pg from '../psql/client.js'
 import {sendFormLink} from '../message/index.js'
 import schedule from 'node-schedule'
 
-const HOST = process.env.HOST || 'http://localhost'
+const HOST = process.env.HOST || 'http://localhost/'
 
 export default () => {
   schedule.scheduleJob('15,30,45,55 13,14,15,16 * * *', () => {
@@ -17,7 +17,7 @@ export default () => {
         (error, result) => {
           if (error) throw error
           result.rows.forEach((rowObj) => {
-            var url = HOST + '/update/' + rowObj.branch_id
+            var url = HOST + 'update/' + rowObj.branch_id
             var body = 'Hello, ' +
               rowObj.first_name +
               '. Please click the link to update your service details: ' + url
