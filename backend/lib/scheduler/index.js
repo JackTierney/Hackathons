@@ -5,7 +5,7 @@ import schedule from 'node-schedule'
 const HOST = process.env.HOST || 'http://localhost/'
 
 export default () => {
-  schedule.scheduleJob('15,30,45,55 13,14,15,16 * * *', () => {
+  schedule.scheduleJob('15,22,45,55 16 * * *', () => {
     console.log('scheduleJob running')
     pg((err, client, done) => {
       if (err) return console.error('error fetching client from pool', err)
