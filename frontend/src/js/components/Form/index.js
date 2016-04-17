@@ -9,11 +9,11 @@ export default (props) => {
     console.log('EVENT', e)
     e.preventDefault()
     const id = window.location.pathname.split('/');
-    axios.post('/api/branch/'(id[0]),
+    axios.post('/api/branch/'+ id[0],
     {
       provider: document.getElementById('Provider').value,
       beds: document.getElementById('Beds').value,
-      document.getElementById('Food').value
+      foods: document.getElementById('Food').value
     })
     .then(function (response) {
       console.log(response);
