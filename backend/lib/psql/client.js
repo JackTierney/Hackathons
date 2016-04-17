@@ -2,8 +2,8 @@ import pg from 'pg'
 
 let connection = ''
 
-if (process.env.DB_URL) {
-  connection = process.env.DB_URL
+if (process.env.DATABASE_URL) {
+  connection = process.env.DATABASE_URL
 } else {
   connection = {
     user: process.env.DB_USER || 'elias',
