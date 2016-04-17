@@ -1,33 +1,29 @@
 import React from 'react'
-import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap'
+import {
+  Input,
+  ButtonInput,
+  Grid,
+  Row,
+  ButtonGroup,
+} from 'react-bootstrap'
+import axios from 'axios'
 
-// console.log(document.getElementById('Provider').value, document.getElementById('Beds').value,
-// document.getElementById('Food').value, "wowowoooooooooooooooo")
-
-export default (props) => {
+export default () => {
   const handler = (e) => {
-    console.log('EVENT', e)
     e.preventDefault()
-    const id = window.location.pathname.split('/');
-    axios.post('/api/branch/'+ id[0],
-    {
+    const id = window.location.pathname.split('/')
+    axios.post('/api/branch/'+ id[2], {
       provider: document.getElementById('Provider').value,
-      service: document.getElementById('service').value,
-      foods: document.getElementById('Food').value
+      beds: document.getElementById('service').value,
+      servingFood: !! document.getElementById('Food').value
     })
-    .then(function (response) {
-      console.log(response);
+    .then((response) => {
+      console.log(response)
     })
-    .catch(function (response) {
-      console.log(response);
-    });
+    .catch((response) => {
+      console.log(response)
+    })
   }
-
-// const stylespan =
-// {
-//   .textcolor: {color:'#fff'}
-//
-// }
 
   return (
     <Grid>
@@ -77,14 +73,3 @@ export default (props) => {
     </Grid>
   )
 }
-
-
-// <DropdownButton title="Beds" id="bg-nested-dropdown">
-//   <MenuItem eventKey="1">0</MenuItem>
-//   <MenuItem eventKey="2">0-5</MenuItem>
-//   <MenuItem eventKey="3">5-10</MenuItem>
-//   <MenuItem eventKey="4">15-10</MenuItem>
-//   <MenuItem eventKey="5">20+</MenuItem>
-// </DropdownButton>
-// <Input type="Serving food" label="Select" id="Food" placeholder="select">
-// </Input>

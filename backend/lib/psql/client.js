@@ -2,8 +2,8 @@ import pg from 'pg'
 
 let connection = ''
 
-if (process.env.DB_URL) {
-  connection = process.env.DB_URL
+if (process.env.DATABASE_URL) {
+  connection = process.env.DATABASE_URL + '?ssl=true'
 } else {
   connection = {
     user: process.env.DB_USER || 'elias',
@@ -13,5 +13,7 @@ if (process.env.DB_URL) {
     host: process.env.DB_HOST || 'localhost',
   }
 }
+
+console.log('Connection info: ', connection)
 
 export default (cb) => pg.connect(connection, cb)
