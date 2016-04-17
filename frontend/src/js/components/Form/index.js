@@ -14,8 +14,8 @@ export default () => {
     const id = window.location.pathname.split('/')
     axios.post('/api/branch/'+ id[0], {
       provider: document.getElementById('Provider').value,
-      beds: document.getElementById('Beds').value,
-      foods: document.getElementById('Food').value
+      beds: document.getElementById('Beds').value + 0,
+      servingFood: !! document.getElementById('Food').value
     })
     .then((response) => {
       console.log(response)
@@ -29,7 +29,9 @@ export default () => {
     <Grid>
       <Row>
         <form onSubmit={handler}>
-          <Input type='text' label='Provider' id='Provider' placeholder='Enter text' />
+          <Input type='text' className='textcolor' label='Provider' id='Provider'
+            placeholder='Enter text'
+          />
           <Input type='email' label='Contact Email Address' placeholder='Enter email' />
           <Input type='phoneNumber' label='Contact Landline' placeholder='Enter Landline'/>
           <Input type='phoneNumber' label='Contact Mobile' placeholder='Enter Landline'/>
