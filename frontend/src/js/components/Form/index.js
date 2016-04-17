@@ -8,6 +8,10 @@ import {
 } from 'react-bootstrap'
 import axios from 'axios'
 
+const style = {
+  paddingTop: '30px'
+}
+
 export default () => {
   const handler = (e) => {
     e.preventDefault()
@@ -28,7 +32,7 @@ export default () => {
   return (
     <Grid>
       <Row>
-        <form onSubmit={handler}>
+        <form onSubmit={handler} style={style}>
           <Input type="text" className="textcolor"label="Provider" id="Provider" placeholder="Enter text" />
           <Input type="email" label="Contact Email Address" placeholder="Enter email" />
           <Input type="phoneNumber" label="Contact Landline" placeholder="Enter Landline"/>
