@@ -3,7 +3,7 @@ import pg from 'pg'
 let connection = ''
 
 if (process.env.DATABASE_URL) {
-  connection = process.env.DATABASE_URL
+  connection = process.env.DATABASE_URL + '?ssl=true'
 } else {
   connection = {
     user: process.env.DB_USER || 'elias',
