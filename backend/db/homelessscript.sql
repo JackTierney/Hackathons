@@ -104,7 +104,7 @@ CREATE TABLE branch_services (
     branch_id integer NOT NULL,
     last_updated timestamp without time zone,
     serving_food boolean,
-    beds integer
+    beds character varying(30)
 );
 
 
@@ -346,9 +346,9 @@ INSERT INTO branch_info VALUES (5, '81 Barking Rd, London', '24/7', 'cah@caritas
 -- Data for Name: branch_services; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO branch_services VALUES (1, '2016-04-15 14:13:53.249532', true, 0);
-INSERT INTO branch_services VALUES (3, '2016-04-15 14:13:53.249532', true, 0);
-INSERT INTO branch_services VALUES (5, '2016-04-15 14:13:53.249532', false, 45);
+INSERT INTO branch_services VALUES (1, '2016-04-15 14:13:53.249532', true, 'Art');
+INSERT INTO branch_services VALUES (3, '2016-04-15 14:13:53.249532', true, 'Employability');
+INSERT INTO branch_services VALUES (5, '2016-04-15 14:13:53.249532', false, 'Showers');
 
 
 --
@@ -398,11 +398,11 @@ SELECT pg_catalog.setval('categories_category_id_seq', 2, true);
 -- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO contacts VALUES (1, 'Jack', 'Fillips', 'islington@foodcycle.org.uk', 07415583356, 1);
-INSERT INTO contacts VALUES (2, 'Tazza', 'Winkleton', 'merton@foodcycle.org.uk', 07789623006, 2);
-INSERT INTO contacts VALUES (3, 'Willie', 'Wonka', 'lse@foodcycle.org.uk', 07732955369, 3);
-INSERT INTO contacts VALUES (4, 'Micheal', 'Mouse', 'oldst@shelter.org.uk', 07415583356, 4);
-INSERT INTO contacts VALUES (5, 'Tarquin', 'Forst-Burner', 'cah@caritas.org.uk', 07789623006, 5);
+INSERT INTO contacts VALUES (1, 'Jack', 'Fillips', 'islington@foodcycle.org.uk', 447415583356, 1);
+INSERT INTO contacts VALUES (2, 'Tazza', 'Winkleton', 'merton@foodcycle.org.uk', 447789623006, 2);
+INSERT INTO contacts VALUES (3, 'Willie', 'Wonka', 'lse@foodcycle.org.uk', 447732955369, 3);
+INSERT INTO contacts VALUES (4, 'Micheal', 'Mouse', 'oldst@shelter.org.uk', 447415583356, 4);
+INSERT INTO contacts VALUES (5, 'Tarquin', 'Forst-Burner', 'cah@caritas.org.uk', 447789623006, 5);
 
 
 --
