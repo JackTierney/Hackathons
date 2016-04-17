@@ -21,9 +21,9 @@ export default (props) => {
       <Row>
         <Col xs={12}>
           <div style={styles.img.outer}>
-            <img style={styles.img.inner} src='img/rhino.png' />
+            <img style={styles.img.inner} src='img/63-shelter.png' />
           </div>
-          <p>Your app goes here...</p>
+          <p>HomeAid, is a service to help people find about options for homeless people within the local area.</p>
         </Col>
       </Row>
     </Grid>

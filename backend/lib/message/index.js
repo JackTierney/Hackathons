@@ -4,6 +4,7 @@ import zensend from 'zensend'
 const client = new zensend.Client(process.env.ZENSEND)
 
 export const sendFormLink = (number, body) => {
+  console.log('Sending message to ' + number + ' with body: ', body)
   client.sendSms({
     originator: 'FAC',
     body: body,
