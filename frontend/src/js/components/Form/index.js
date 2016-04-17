@@ -1,14 +1,14 @@
 import React from 'react'
 import {Input, ButtonInput, Grid, Col, Row, ButtonGroup, DropdownButton, MenuItem} from 'react-bootstrap'
 
+console.log(document.getElementById('Provider').value, document.getElementById('Beds').value,
+document.getElementById('Food').value, "wowowoooooooooooooooo")
 
 export default (props) => {
   const handler = (e) => {
     console.log('EVENT', e)
     e.preventDefault()
     const id = window.location.pathname.split('/');
-    console.log(document.getElementById('Provider').value, document.getElementById('Beds').value,
-    document.getElementById('Food').value, "wowowoooooooooooooooo")
     axios.post('/api/branch/'(id[0]),
     {
       provider: document.getElementById('Provider').value,
