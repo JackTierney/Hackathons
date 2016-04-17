@@ -23,17 +23,17 @@ export default (props) => {
     });
   }
 
-const stylespan =
-{
-  span: {color:'#fff'}
-
-}
+// const stylespan =
+// {
+//   .textcolor: {color:'#fff'}
+//
+// }
 
   return (
     <Grid>
       <Row>
         <form onSubmit={handler}>
-          <Input type="text" syle={stylespan.span}label="Provider" id="Provider" placeholder="Enter text" />
+          <Input type="text" className="textcolor"label="Provider" id="Provider" placeholder="Enter text" />
           <Input type="email" label="Contact Email Address" placeholder="Enter email" />
           <Input type="phoneNumber" label="Contact Landline" placeholder="Enter Landline"/>
           <Input type="phoneNumber" label="Contact Mobile" placeholder="Enter Landline"/>
