@@ -14,4 +14,6 @@ if (process.env.DB_URL) {
   }
 }
 
+console.log('Connection info: ', connection)
+
 export default (cb) => pg.connect(connection, cb)
