@@ -4,6 +4,7 @@ export const get = {
   method: 'GET',
   path: '/api/branch/{id?}',
   handler: (req, reply) => {
+    console.log("in handler");
     if (req.params.id) {
       pg((error, client, done) => {
         if (error) throw error
@@ -26,6 +27,7 @@ export const get = {
     } else {
       pg((error, client, done) => {
         if (error) throw error
+        console.log("fdlshglhg");
         client.query(
           'SELECT ' +
           'branches.branch_name, branch_info.address, branch_info.opening_hours, ' +
