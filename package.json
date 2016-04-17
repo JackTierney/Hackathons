@@ -4,12 +4,12 @@
   "description": "Some boilerplate to get us off to a quick start at hackathons",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon backend/lib/index.js --exec babel-node --presets es2015,stage-1",
-    "server-build": "babel backend/lib -d backend/dist --presets es2015,stage-1",
+    "nodemon": "./node_modules/.bin/nodemon backend/lib/index.js --exec babel-node --presets es2015,stage-1",
+    "server-build": "./node_modules/.bin/babel backend/lib -d backend/dist --presets es2015,stage-1",
     "production-serve": "node backend/dist/index.js",
     "dev": "webpack-dev-server --hot --inline --content-base public/",
     "watch": "webpack --watch --progress",
-    "prestart": "npm run server-build && webpack --progress --config webpack.config.js",
+    "prestart": "npm run server-build && ./node_modules/.bin/webpack --progress --config webpack.config.js",
     "start": "node ./backend/dist/index.js",
     "pretest": "npm run server-build",
     "test": "tape ./backend/tests/runner.js"
