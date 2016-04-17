@@ -7,7 +7,7 @@ import Form from './Form/index.js'
 import '../../scss/style.scss'
 
 const options = {
-  menuItems: ['about', 'contact', 'Form'],
+  menuItems: ['about', 'contact'],
   logoUrl: '/img/63-shelter.png'
 }
 
