@@ -12,6 +12,6 @@ export default (
     <IndexRoute component={Home} />
     <Route path='/about' component={About} />
     <Route path='/contact' component={Contact} />
-    <Route path='/form' component={Form} />
+    <Route path='/update/:branch_id' component={Form} />
   </Route>
 )
