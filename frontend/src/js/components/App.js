@@ -5,7 +5,7 @@ import Footer from './Footer/index.js'
 import '../../scss/style.scss'
 
 const options = {
-  menuItems: ['about', 'contact'],
+  menuItems: ['', ''],
   logoUrl: '/img/63-shelter.png'
 }
 

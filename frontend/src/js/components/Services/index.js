@@ -2,6 +2,10 @@ import React from 'react'
 import Branch from './BranchItem.js'
 import {Grid, Row} from 'react-bootstrap'
 
+const style = {
+  paddingTop: '20px'
+}
+
 export default class Services extends React.Component {
   constructor () {
     super()
@@ -32,7 +36,7 @@ export default class Services extends React.Component {
     return (
       <Grid>
       <Row>
-      <ul>
+      <ul style={style}>
         {this.state.branchesArray.map(function(branchObj, i){
           return (
             <Branch key={i} info={branchObj} />
